@@ -1,0 +1,66 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: msvc-gateway
+  config:
+    import: 'optional:configserver:http://localhost:8888'
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: pagos
+          uri: http://localhost:8090
+          predicates:
+            - Path=/api/pagos/**
+        - id: pagosDocumentos
+          uri: http://localhost:8090
+          predicates:
+            - Path=/pagos/**
+        - id: pagosWebsocket
+          uri: http://localhost:8090
+          predicates:
+            - Path=/ws-pagos/**
+
+
+        - id: metodoDePagos
+          uri: http://localhost:8091
+          predicates:
+            - Path=/api/metodos-pago/**
+        - id: metodoDePagosDocumentos
+          uri: http://localhost:8091
+          predicates:
+            - Path=/metodos-pago/**
+        - id: metodoDePagosWebsocket
+          uri: http://localhost:8091
+          predicates:
+            - Path=/ws-metodos-pago/**
+
+        - id: tiposPago
+          uri: http://localhost:8092
+          predicates:
+            - Path=/api/tipos-pago/**
+        - id: tiposPagoDocumentos
+          uri: http://localhost:8092
+          predicates:
+            - Path=/tipos-pago/**
+        - id: tiposPagoWebsocket
+          uri: http://localhost:8092
+          predicates:
+            - Path=/ws-tipos-pago/**
+
+        - id: graphql-ui
+          uri: http://localhost:8070
+          predicates:
+            - Path=/graphiql/**
+        - id: graphql-api
+          uri: http://localhost:8070
+          predicates:
+            - Path=/graphql/**
+
+eureka:
+  client:
+    register-with-eureka: true

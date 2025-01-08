@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microservice-gateway" />
+        <module name="microservice-eureka" />
+        <module name="microservice-config" />
+        <module name="microservice-metodo-de-pago" />
+      </profile>
+      <profile name="Annotation profile for module-services" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="microservice-pagos" />
+        <module name="microservice-report-graphqls" />
+        <module name="microservice-tipoPago" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="graphql" target="17" />
+      <module name="microservice-pagos (1)" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="graphql" options="-parameters" />
+      <module name="microservice-config" options="-parameters" />
+      <module name="microservice-eureka" options="-parameters" />
+      <module name="microservice-gateway" options="-parameters" />
+      <module name="microservice-metodo-de-pago" options="-parameters" />
+      <module name="microservice-pagos" options="-parameters" />
+      <module name="microservice-pagos (1)" options="-parameters" />
+      <module name="microservice-report-graphqls" options="-parameters" />
+      <module name="microservice-tipoPago" options="-parameters" />
+      <module name="module-services" options="-parameters" />
+    </option>
+  </component>
+</project>

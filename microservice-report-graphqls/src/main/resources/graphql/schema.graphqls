@@ -1,0 +1,58 @@
+type MetodoPago {
+    id: ID!
+    nombreMetodo: String!
+}
+
+type Pago {
+    id: ID!
+    idMetodoPago: ID!
+    idTipoPago: ID!
+    monto: Float!
+    fechaPago: String
+    estadoPago: String!
+}
+
+type TipoPago {
+    id: ID!
+    descripcion: String!
+}
+
+type Query {
+    # Queries para MetodoPago
+    listarMetodosDePago: [MetodoPago!]!
+    obtenerMetodoPago(id: ID!): MetodoPago
+
+    # Queries para Pago
+    listarPagos: [Pago!]!
+    obtenerPago(id: ID!): Pago
+
+    # Queries para TipoPago
+    listarTiposDePago: [TipoPago!]!
+    obtenerTipoPago(id: ID!): TipoPago
+}
+
+type Mutation {
+    crearMetodoPago(nombreMetodo: String!): MetodoPago!
+    actualizarMetodoPago(id: ID!, nombreMetodo: String!): MetodoPago!
+    eliminarMetodoPago(id: ID!): String!
+
+    # Mutaciones para Pago
+    registrarPago(
+        idMetodoPago: ID!,
+        idTipoPago: ID!,
+        monto: Float!,
+        fechaPago: String!,
+        estadoPago: String!
+    ): Pago!
+    actualizarPago(
+        id: ID!,
+        monto: Float,
+        estadoPago: String
+    ): Pago!
+    eliminarPago(id: ID!): String!
+
+    # Mutaciones para TipoPago
+    crearTipoPago(descripcion: String!): TipoPago!
+    actualizarTipoPago(id: ID!, descripcion: String!): TipoPago!
+    eliminarTipoPago(id: ID!): String!
+}

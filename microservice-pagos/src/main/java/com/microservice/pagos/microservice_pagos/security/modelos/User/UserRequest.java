@@ -1,0 +1,16 @@
+package com.microservice.pagos.microservice_pagos.security.modelos.User;
+
+public class UserRequest {
+    public Integer id;
+    private String firstname;
+
+    public UserRequest(Integer id, String firstname) {
+        this.id = id;
+        this.firstname = firstname;
+    }
+
+    // Getters
+    public String getFirstname() {
+        return firstname;
+    }
+}

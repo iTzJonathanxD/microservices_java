@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Métodos de Pago</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2><i class="fas fa-credit-card"></i> Métodos de Pago</h2>
+        </div>
+        <nav class="sidebar-menu">
+            <a href="#connect" onclick="connect()" class="menu-item"><i class="fas fa-plug"></i> Conectar</a>
+            <a href="#disconnect" onclick="disconnect()" class="menu-item"><i class="fas fa-power-off"></i> Desconectar</a>
+            <a href="#notifications" class="menu-item"><i class="fas fa-bell"></i> Notificaciones</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <h1>Dashboard Métodos de Pago</h1>
+            <p id="client-id" class="client-info">ID Cliente: <span>(No conectado)</span></p>
+        </header>
+
+        <!-- Notificaciones -->
+        <section id="notifications" class="notifications-section">
+            <h2>Notificaciones</h2>
+            <div id="notificaciones" class="notifications"></div>
+        </section>
+    </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
